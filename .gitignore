@@ -1,0 +1,7 @@
+.DS_Store
+web/node_modules/
+web/.next/
+web/tsconfig.tsbuildinfo
+api/target/
+.env
+*.log
