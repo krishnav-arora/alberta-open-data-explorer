@@ -4,7 +4,7 @@ A small portfolio MVP for exploring Alberta municipality population estimates. I
 
 ## Run locally
 
-Requirements: Node.js 22+ and Java 23. Maven is downloaded automatically by the included wrapper.
+Requirements: Node.js 22+ and Java 21. Maven is downloaded automatically by the included wrapper.
 
 In separate terminals:
 
@@ -20,6 +20,14 @@ npm run dev
 ```
 
 Open http://localhost:3000. The Next.js server forwards `/api/*` to the Spring Boot API on port 8080. No account or API key is needed for search and comparison.
+
+## Deploy on Railway
+
+The live site is [web-production-f6d81.up.railway.app](https://web-production-f6d81.up.railway.app/).
+
+Create one Railway project with two services connected to this GitHub repository. Set the API service root directory to `/api` and the web service root directory to `/web`. In the web service, set `API_BASE_URL` to `http://${{api.RAILWAY_PRIVATE_DOMAIN}}:8080` using Railway's reference variable syntax. Set the API service's `PORT` variable to `8080` so the private address is stable. Generate a public Railway domain for the web service only and set its target port to `8080`, the port shown in the web service's deploy logs. The API does not require a public domain.
+
+
 
 ## Data provenance and method
 
